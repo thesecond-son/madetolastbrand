@@ -44,7 +44,7 @@
       align-items: center;
       padding: clamp(6px,1.8vw,14px) clamp(12px,3vw,40px);
       position: sticky; top: 0; z-index: 200;
-      overflow: hidden;
+      /* overflow: hidden; */
     }
     .nav-logo {
       font-family: 'Inter', sans-serif; font-weight: 900;
@@ -57,6 +57,7 @@
       display: block;
     }
     .nav-logo em { font-style: italic; font-weight: 400; }
+
     .nav-links {
       display: flex; align-items: center;
       gap: clamp(8px,1.8vw,24px);
@@ -71,6 +72,22 @@
       letter-spacing: 0.3px; text-transform: uppercase; white-space: nowrap;
     }
     .nav-links a:hover { text-decoration: underline; }
+
+    /* ── HAMBURGER ── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      width: 22px;
+      height: 2px;
+      background: #000;
+      display: block;
+    }
+
     .btn-nav-cta {
       background: var(--green); color: #000;
       font-size: clamp(9px,1.6vw,13px); font-weight: 800;
@@ -80,6 +97,63 @@
       flex-shrink: 0; transition: opacity .2s;
     }
     .btn-nav-cta:hover { opacity: .85; }
+
+
+    @media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--orange);
+
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.25s ease;
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .btn-nav-cta {
+    display: none;
+  }
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.nav-toggle span {
+  transition: all 0.25s ease;
+}
+
+    
 
     /* ── HERO ── */
     .hero { background: var(--cream); padding-top: clamp(24px,7vw,72px); }
@@ -294,6 +368,19 @@
     }
     .btn-green-cta:hover { opacity: .85; }
 
+    /* ── CASE STUDIES (Responsive Grid) ── */
+    @media (max-width: 900px) {
+      .case-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .case-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ── CTA ── */
     .cta-section {
       background: var(--orange);
@@ -369,6 +456,19 @@
     .footer-socials-grid a:hover { color: var(--green); }
     .footer-copy { font-size: clamp(7px,1.7vw,10px); color: #444; text-align: right; text-transform: uppercase; }
 
+    /* ── FOOTER (Mobile Fix) ── */
+    @media (max-width: 768px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .footer-copy {
+        text-align: left;
+        margin-top: 12px;
+      }
+    }
+
     /* ── PAGE LOAD ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(36px); }
@@ -432,7 +532,14 @@
     <div class="nav-logo">
       <img src="Madetolast-white.png" alt="MadetoLast Brands">
     </div>
-    <div class="nav-links fd">
+
+    <div class="nav-toggle" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="nav-links fd" id="navMenu">
       <a href="#">Process</a>
       <a href="services.html">Services</a>
       <a href="#">Our Story</a>
@@ -667,6 +774,16 @@
         io.observe(el);
       });
     });
+
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      navToggle.classList.toggle('active');
+    });
+
+
   </script>
 </body>
 </html>

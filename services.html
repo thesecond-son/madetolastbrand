@@ -38,7 +38,6 @@
       display: flex; align-items: center;
       padding: clamp(6px,1.8vw,14px) clamp(12px,3vw,40px);
       position: sticky; top: 0; z-index: 200;
-      overflow: hidden;
     }
     .nav-logo { white-space: nowrap; flex-shrink: 0; }
     .nav-logo img { height: clamp(36px,7vw,60px); width: auto; display: block; }
@@ -64,6 +63,78 @@
       font-family: 'Boldonse', sans-serif;
     }
     .btn-nav-cta:hover { opacity: .85; }
+
+    
+    /* ── HAMBURGER ── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      width: 22px;
+      height: 2px;
+      background: #000;
+      display: block;
+    }
+
+
+    @media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--orange);
+
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.25s ease;
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .btn-nav-cta {
+    display: none;
+  }
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.nav-toggle span {
+  transition: all 0.25s ease;
+}
+
 
     /* ── CENTERING WRAPPER — same padding approach as homepage ── */
     .page-inner {
@@ -223,6 +294,21 @@
     .footer-socials-grid a:hover { color: var(--green); }
     .footer-copy { font-size: clamp(7px,1.7vw,10px); color: #444; text-align: right; text-transform: uppercase; }
 
+    
+    /* ── FOOTER (Mobile Fix) ── */
+    @media (max-width: 768px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .footer-copy {
+        text-align: left;
+        margin-top: 12px;
+      }
+    }
+
+
     /* ── WHATSAPP FLOAT ── */
     .wa-float {
       position: fixed; bottom: clamp(16px,4vw,32px); right: clamp(16px,4vw,32px);
@@ -269,7 +355,14 @@
     <div class="nav-logo">
       <img src="Madetolast-white.png" alt="MadetoLast Brands">
     </div>
-    <div class="nav-links fd">
+
+    <div class="nav-toggle" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="nav-links fd" id="navMenu">
       <a href="index.html">Process</a>
       <a href="services.html" class="active">Services</a>
       <a href="#">Our Story</a>
@@ -404,6 +497,14 @@
       el.style.transform = 'translateY(28px)';
       el.style.transition = 'opacity 0.55s cubic-bezier(.22,1,.36,1), transform 0.55s cubic-bezier(.22,1,.36,1)';
       io.observe(el);
+    });
+
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      navToggle.classList.toggle('active');
     });
   </script>
 </body>
