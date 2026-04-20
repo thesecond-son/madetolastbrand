@@ -171,7 +171,7 @@
       flex-shrink: 0; transition: opacity .2s;
     }
     .btn-partner:hover { opacity: .85; }
-    .hero-sub { font-size: clamp(32px,10vw,44px); color: #000; line-height: 1.65; font-weight: 400; flex: 1; }
+    .hero-sub { font-size: clamp(16px,4.5vw,44px); color: #000; line-height: 1.65; font-weight: 400; flex: 1; }
 
     /* ── MARQUEE ── */
     .marquee-wrap {
@@ -343,9 +343,23 @@
       display: block;
     }
     .case-caption {
-      font-size: clamp(16px,5vw,20px); font-weight: 200; color: #000; line-height: 1.5;
-      margin-top: clamp(5px,1.5vw,12px);
-      transition: color .2s;
+      font-size: clamp(10px,1.6vw,14px);
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.45;
+      margin-top: clamp(8px,1.5vw,12px);
+      padding-top: clamp(6px,1vw,10px);
+      border-top: 2px solid var(--dark);
+      transition: color .2s, border-color .2s;
+      letter-spacing: 0.01em;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .case-card-link:hover .case-caption {
+      color: var(--orange);
+      border-color: var(--orange);
     }
     .btn-green-cta {
       display: inline-block; background: var(--green); color: #000;
