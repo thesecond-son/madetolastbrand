@@ -42,7 +42,8 @@
       background: var(--orange);
       display: flex;
       align-items: center;
-      padding: clamp(6px,1.8vw,14px) clamp(12px,3vw,40px);
+      padding: clamp(4px,1vw,8px) clamp(12px,3vw,40px);
+      height: clamp(60px, 8vw, 80px);
       position: sticky; top: 0; z-index: 200;
       /* overflow: hidden; */
     }
@@ -52,7 +53,9 @@
       white-space: nowrap; flex-shrink: 0; line-height: 1.2;
     }
     .nav-logo img {
-      height: clamp(36px,7vw,60px);
+      height: clamp(50px, 10vw, 120px);
+      /* height: 100%;
+      max-height: clamp(50px, 8vw, 70px); */
       width: auto;
       display: block;
     }
@@ -181,7 +184,7 @@
       flex-shrink: 0; transition: opacity .2s;
     }
     .btn-partner:hover { opacity: .85; }
-    .hero-sub { font-size: clamp(10px,2.8vw,16px); color: #444; line-height: 1.65; font-weight: 600; flex: 1; }
+    .hero-sub { font-size: clamp(32px,10vw,44px); color: #000; line-height: 1.65; font-weight: 400; flex: 1; }
 
     /* ── MARQUEE ── */
     .marquee-wrap {
@@ -322,7 +325,7 @@
       margin-bottom: clamp(12px,3.75vw,30px);
     }
     .case-title {
-      font-size: clamp(16px,4vw,36px); line-height: 1.5; color: var(--dark);
+      font-size: clamp(16px,4vw,36px); line-height: 1.8; color: var(--dark);
       max-width: 85%; margin: 0 auto clamp(12px,3.75vw,30px);
     }
     .case-arrow { font-size: clamp(18px,5vw,40px); display: block; margin-bottom: clamp(14px,3.75vw,30px); }
@@ -355,7 +358,7 @@
       display: block;
     }
     .case-caption {
-      font-size: clamp(8px,1.875vw,11px); font-weight: 600; color: #333; line-height: 1.5;
+      font-size: clamp(16px,5vw,20px); font-weight: 200; color: #000; line-height: 1.5;
       margin-top: clamp(5px,1.5vw,12px);
       transition: color .2s;
     }
@@ -424,7 +427,8 @@
       text-align: left;
     }
     .footer-brand img {
-      height: clamp(78px,20vw,105px);
+      height: auto;
+      max-height: clamp(60px, 10vw, 90px);
       width: auto;
       display: block;
       max-width: 100%;
@@ -530,7 +534,9 @@
   <!-- NAV -->
   <nav>
     <div class="nav-logo">
-      <img src="Madetolast-white.png" alt="MadetoLast Brands">
+      <a href="index.html">
+        <img src="Madetolast-white.png" alt="MadetoLast Brands">
+      </a>
     </div>
 
     <div class="nav-toggle" id="navToggle">
@@ -540,11 +546,11 @@
     </div>
 
     <div class="nav-links fd" id="navMenu">
-      <a href="#">Process</a>
+      <a href="#process">Process</a>
       <a href="services.html">Services</a>
-      <a href="#">Our Story</a>
-      <a href="#">Contact</a>
-      <a href="#">Blog</a>
+      <a href="#founder">Our Story</a>
+      <a href="#contact">Contact</a>
+      <a href="https://weeklybrandmarketinganalysis.substack.com/">Blog</a>
     </div>
     <a href="#contact" class="btn-nav-cta fd">Start Project</a>
   </nav>
@@ -590,7 +596,7 @@
   </section>
 
   <!-- PROCESS -->
-  <section class="process-section">
+  <section class="process-section" id="process">
     <div class="inner">
       <p class="eyebrow">Our Process</p>
       <h2 class="process-title fd">The Brand Marketing System</h2>
@@ -615,7 +621,7 @@
   </section>
 
   <!-- FOUNDER -->
-  <section class="founder-section">
+  <section class="founder-section" id="founder">
     <div class="inner">
       <h2 class="founder-title fd">Meet the Founder</h2>
       <div class="founder-grid">
@@ -675,14 +681,16 @@
   <section class="cta-section" id="contact">
     <div class="inner">
       <h2 class="cta-title fd">Are you Ready to<br>Build a Brand that is<br>Made to Last?</h2>
-      <a href="https://wa.me/2349016043072?text=Hi%2C%20I%27m%20ready%20to%20build%20a%20brand%20that%20lasts%21" target="_blank" class="btn-partner">Partner With Us</a>
+      <a href="https://wa.me/2349016043072?text=Hi%2C%20I%27m%20ready%20to%20build%20a%20brand%20that%20lasts%21" target="_blank" class="btn-partner fd">Partner With Us</a>
       <p class="cta-sub fh">We're currently booking for Q3.<br>Fill the form and get started.</p>
     </div>
     <footer>
       <div class="footer-top">
         <div>
           <div class="footer-brand">
+            <a href="index.html">
             <img src="Madetolast-primary.png" alt="MadetoLast Brands">
+            </a>
           </div>
           <p class="footer-desc">A Brand Marketing and Advertising Agency for DTC brands, structuring founders' ideas into profitable brands for founders done with DIY.</p>
         </div>
@@ -700,10 +708,11 @@
             <a href="https://www.instagram.com/madetolastbrands">Instagram</a>
             <a href="https://x.com/Madetolastbrand">X (Twitter)</a>
             <a href="https://www.facebook.com/share/1CSLQLk2s4/">Facebook</a>
+            <a href="https://weeklybrandmarketinganalysis.substack.com/">Substack</a>
           </div>
         </div>
       </div>
-      <p class="footer-copy">© 2026 Made to Last Brands. All Rights Reserved.</p>
+      <p class="footer-copy">© 2026 Made to Last Brands LTD. All Rights Reserved.</p>
     </footer>
   </section>
 

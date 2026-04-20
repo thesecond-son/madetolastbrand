@@ -36,11 +36,12 @@
     nav {
       background: var(--orange);
       display: flex; align-items: center;
-      padding: clamp(6px,1.8vw,14px) clamp(12px,3vw,40px);
+      padding: clamp(4px,1vw,8px) clamp(12px,3vw,40px);
+      height: clamp(60px, 8vw, 80px);
       position: sticky; top: 0; z-index: 200;
     }
     .nav-logo { white-space: nowrap; flex-shrink: 0; }
-    .nav-logo img { height: clamp(36px,7vw,60px); width: auto; display: block; }
+    .nav-logo img { height: clamp(50px, 10vw, 120px); width: auto; display: block; }
     .nav-links {
       display: flex; align-items: center;
       gap: clamp(8px,1.8vw,24px); flex: 1; justify-content: center;
@@ -266,7 +267,9 @@
     .footer-top > div { text-align: left; }
     .footer-brand { line-height: 1.15; margin-bottom: clamp(7px,1.9vw,16px); }
     .footer-brand img {
-      height: clamp(78px,20vw,105px); width: auto;
+      height: clamp(78px,20vw,105px); 
+      max-height: clamp(60px, 10vw, 90px);
+      width: auto;
       display: block; max-width: 100%;
       margin-left: 0; margin-right: auto;
     }
@@ -353,7 +356,9 @@
   <!-- NAV -->
   <nav>
     <div class="nav-logo">
-      <img src="Madetolast-white.png" alt="MadetoLast Brands">
+      <a href="index.html">
+        <img src="Madetolast-white.png" alt="MadetoLast Brands">
+      </a>
     </div>
 
     <div class="nav-toggle" id="navToggle">
@@ -366,8 +371,8 @@
       <a href="index.html">Process</a>
       <a href="services.html" class="active">Services</a>
       <a href="#">Our Story</a>
-      <a href="#">Contact</a>
-      <a href="#">Blog</a>
+      <a href="#contact">Contact</a>
+      <a href="https://weeklybrandmarketinganalysis.substack.com/">Blog</a>
     </div>
     <a href="#contact" class="btn-nav-cta fd">Start Project</a>
   </nav>
@@ -436,7 +441,7 @@
   <section class="services-cta" id="contact">
     <div class="page-inner">
       <h2 class="services-cta-title">Are you Ready to<br>Build a Brand that is<br>Made to Last?</h2>
-      <a href="https://wa.me/2349016043072?text=Hi%2C%20I%27m%20ready%20to%20build%20a%20brand%20that%20lasts%21" target="_blank" class="btn-partner">Partner With Us</a>
+      <a href="https://wa.me/2349016043072?text=Hi%2C%20I%27m%20ready%20to%20build%20a%20brand%20that%20lasts%21" target="_blank" class="btn-partner fd">Partner With Us</a>
       <p class="services-cta-sub">We're currently booking for Q3.<br>Fill the form and get started.</p>
     </div>
 
@@ -444,7 +449,9 @@
       <div class="footer-top">
         <div>
           <div class="footer-brand">
+            <a href="services.html">
             <img src="Madetolast-primary.png" alt="MadetoLast Brands">
+          </a>
           </div>
           <p class="footer-desc">A Brand Marketing and Advertising Agency for DTC brands, structuring founders' ideas into profitable brands for founders done with DIY.</p>
         </div>
@@ -462,10 +469,11 @@
             <a href="https://www.instagram.com/madetolastbrands">Instagram</a>
             <a href="https://x.com/Madetolastbrand">X (Twitter)</a>
             <a href="https://www.facebook.com/share/1CSLQLk2s4/">Facebook</a>
+            <a href="https://weeklybrandmarketinganalysis.substack.com/">Substack</a>
           </div>
         </div>
       </div>
-      <p class="footer-copy">© 2026 Made to Last Brands. All Rights Reserved.</p>
+      <p class="footer-copy">© 2026 Made to Last Brands LTD. All Rights Reserved.</p>
     </footer>
   </section>
 
