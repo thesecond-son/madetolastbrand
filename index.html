@@ -10,13 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet">
 
   <style>
-    /* @font-face {
-      font-family: 'Boldonse';
-      src: url('https://fonts.googleapis.com/css2?family=Boldonse&display=swap') format('woff2');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    } */
     :root {
       --orange: #F04800;
       --cream:  #F5FFEA;
@@ -45,7 +38,6 @@
       padding: clamp(4px,1vw,8px) clamp(12px,3vw,40px);
       height: clamp(60px, 8vw, 80px);
       position: sticky; top: 0; z-index: 200;
-      /* overflow: hidden; */
     }
     .nav-logo {
       font-family: 'Inter', sans-serif; font-weight: 900;
@@ -54,8 +46,6 @@
     }
     .nav-logo img {
       height: clamp(50px, 10vw, 120px);
-      /* height: 100%;
-      max-height: clamp(50px, 8vw, 70px); */
       width: auto;
       display: block;
     }
@@ -76,7 +66,6 @@
     }
     .nav-links a:hover { text-decoration: underline; }
 
-    /* ── HAMBURGER ── */
     .nav-toggle {
       display: none;
       flex-direction: column;
@@ -119,12 +108,10 @@
     left: 0;
     width: 100%;
     background: var(--orange);
-
     flex-direction: column;
     align-items: center;
     gap: 16px;
     padding: 20px 0;
-
     opacity: 0;
     pointer-events: none;
     transform: translateY(-10px);
@@ -335,7 +322,6 @@
       margin-bottom: clamp(18px,5vw,44px); text-align: left;
     }
 
-    /* Case card link wrapper */
     .case-card-link {
       display: block;
       text-decoration: none;
@@ -350,7 +336,6 @@
       display: block;
       transition: opacity .2s;
     }
-    /* Images inside case blocks fill the block properly */
     .case-img-block img {
       width: 100%;
       height: 100%;
@@ -371,19 +356,6 @@
     }
     .btn-green-cta:hover { opacity: .85; }
 
-    /* ── CASE STUDIES (Responsive Grid) ──
-    @media (max-width: 900px) {
-      .case-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 560px) {
-      .case-grid {
-        grid-template-columns: 1fr;
-      }
-    } */
-
     /* ── CTA ── */
     .cta-section {
       background: var(--orange);
@@ -399,11 +371,87 @@
       margin-top: clamp(10px,2.7vw,22px); line-height: 1.5;
     }
 
+    /* ── EMAIL FORM ── */
+    .email-form-section {
+      background: var(--orange);
+      padding: clamp(36px,9vw,80px) 0 clamp(40px,10vw,80px);
+    }
+    .email-form-inner {
+      max-width: clamp(320px, 70vw, 660px);
+      margin: 0 auto;
+      padding: 0 clamp(14px,3.75vw,64px);
+    }
+    .email-form-label {
+      display: block;
+      font-family: 'Covered By Your Grace', cursive;
+      font-size: clamp(18px,4.5vw,32px);
+      color: #fff;
+      text-align: center;
+      margin-bottom: clamp(20px,5vw,40px);
+    }
+    .email-form {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(10px,2.5vw,16px);
+    }
+    .email-form input,
+    .email-form textarea {
+      width: 100%;
+      background: #fff;
+      border: none;
+      outline: none;
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(12px,2.5vw,15px);
+      color: #111;
+      padding: clamp(12px,3vw,18px) clamp(14px,3.5vw,22px);
+      resize: none;
+    }
+    .email-form input::placeholder,
+    .email-form textarea::placeholder {
+      color: #999;
+      font-size: clamp(11px,2.3vw,14px);
+    }
+    .email-form input:focus,
+    .email-form textarea:focus {
+      box-shadow: 0 0 0 3px var(--green);
+    }
+    .email-form textarea { min-height: clamp(90px,18vw,140px); }
+    .email-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(10px,2.5vw,16px);
+    }
+    @media (max-width: 520px) {
+      .email-form-row { grid-template-columns: 1fr; }
+    }
+    .btn-form-submit {
+      background: var(--dark); color: var(--green);
+      font-family: 'Boldonse', sans-serif;
+      font-size: clamp(11px,2.7vw,16px);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      border: none; cursor: pointer;
+      padding: clamp(13px,3.3vw,20px) clamp(20px,5vw,40px);
+      transition: opacity .2s, transform .15s;
+      align-self: flex-start;
+      width: 100%;
+    }
+    .btn-form-submit:hover { opacity: .88; transform: translateY(-1px); }
+    .btn-form-submit:active { transform: translateY(0); }
+    .form-status {
+      font-size: clamp(11px,2.3vw,14px);
+      font-weight: 600;
+      text-align: center;
+      padding: clamp(8px,2vw,12px);
+      display: none;
+    }
+    .form-status.success { background: var(--green); color: #111; display: block; }
+    .form-status.error   { background: #fff; color: var(--orange); display: block; }
+
     /* ── FOOTER ── */
     footer {
       background: #F5FFEA;
-      padding: clamp(20px,5.8vw,52px) clamp(14px,3.75vw,64px) clamp(12px,3.3vw,28px);
-      margin-top: clamp(36px,10vw,90px);
+      padding: clamp(10px,3vw,24px) clamp(14px,3.75vw,64px) clamp(12px,3.3vw,28px);
+      margin-top: clamp(20px,6vw,50px);
     }
     .footer-top {
       display: grid;
@@ -413,13 +461,10 @@
       border-bottom: 1px solid #262626;
       margin-bottom: clamp(10px,2.5vw,20px);
     }
-    /* Col 1: left-aligned */
     .footer-top > div:nth-child(1) { text-align: left; }
-    /* Col 2: left-aligned within its centered grid column */
     .footer-top > div:nth-child(2) { text-align: left; }
     .footer-top > div:nth-child(2) .footer-col { width: 100%; text-align: left; }
     .footer-top > div:nth-child(2) .footer-col a { text-align: left; }
-    /* Col 3: left-aligned within its right grid column */
     .footer-top > div:nth-child(3) { text-align: left; }
 
     .footer-brand {
@@ -460,13 +505,11 @@
     .footer-socials-grid a:hover { color: var(--green); }
     .footer-copy { font-size: clamp(7px,1.7vw,10px); color: #444; text-align: right; text-transform: uppercase; }
 
-    /* ── FOOTER (Mobile Fix) ── */
     @media (max-width: 768px) {
       .footer-top {
         grid-template-columns: 1fr;
         gap: 24px;
       }
-
       .footer-copy {
         text-align: left;
         margin-top: 12px;
@@ -684,6 +727,25 @@
       <a href="https://wa.me/2349016043072?text=Hi%2C%20I%27m%20ready%20to%20build%20a%20brand%20that%20lasts%21" target="_blank" class="btn-partner fd">Partner With Us</a>
       <p class="cta-sub fh">We're currently booking for Q3.<br>Fill the form and get started.</p>
     </div>
+  </section>
+
+  <!-- EMAIL FORM -->
+  <section class="email-form-section">
+    <div class="email-form-inner">
+      <span class="email-form-label">or drop us a message directly</span>
+      <form class="email-form" id="contactForm">
+        <div class="email-form-row">
+          <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
+          <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+        </div>
+        <input type="text" name="subject" placeholder="Subject" required />
+        <textarea name="message" placeholder="Tell us about your brand and what you're looking to build..." required></textarea>
+        <button type="submit" class="btn-form-submit fd">Send Message &rarr;</button>
+      </form>
+      <div class="form-status" id="formStatus"></div>
+    </div>
+  </section>
+
     <footer>
       <div class="footer-top">
         <div>
@@ -714,7 +776,6 @@
       </div>
       <p class="footer-copy">© 2026 Made to Last Brands LTD. All Rights Reserved.</p>
     </footer>
-  </section>
 
   <!-- WHATSAPP FLOAT -->
   <div class="wa-float">
@@ -749,6 +810,8 @@
       { sel: '.cta-title',         dir: 'up',    delay: 0   },
       { sel: '.footer-brand',      dir: 'up',    delay: 0   },
       { sel: '.footer-desc',       dir: 'up',    delay: 80  },
+      { sel: '.email-form-label',  dir: 'up',    delay: 0   },
+      { sel: '.email-form',        dir: 'up',    delay: 100 },
     ];
 
     function getTransform(dir) {
@@ -792,7 +855,35 @@
       navToggle.classList.toggle('active');
     });
 
+    // ── EMAIL FORM HANDLER ──
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = this;
+      const status = document.getElementById('formStatus');
+      const btn = form.querySelector('.btn-form-submit');
 
+      const name    = form.name.value.trim();
+      const email   = form.email.value.trim();
+      const subject = form.subject.value.trim();
+      const message = form.message.value.trim();
+
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const mailto = `mailto:hello@madetolastbrands.com`
+        + `?subject=${encodeURIComponent(subject + ' — from ' + name)}`
+        + `&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
+
+      window.location.href = mailto;
+
+      setTimeout(() => {
+        status.textContent = "Your email client should have opened. If not, email us directly at hello@madetolastbrands.com";
+        status.className = 'form-status success';
+        btn.textContent = 'Send Message →';
+        btn.disabled = false;
+        form.reset();
+      }, 1200);
+    });
   </script>
 </body>
 </html>
