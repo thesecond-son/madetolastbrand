@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services – MadetoLast Brands</title>
+  <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Covered+By+Your+Grace&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange: #F04800;
+      --cream:  #F5FFEA;
+      --peach:  #FFE1BF;
+      --blue:   #A6CCF2;
+      --green:  #A7EC52;
+      --dark:   #111111;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; }
+
+    .fd { font-family: 'Boogaloo', 'Arial Black', sans-serif; }
+    .fh { font-family: 'Covered By Your Grace', cursive; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--orange);
+      display: flex; align-items: center;
+      padding: clamp(6px,1.8vw,14px) clamp(12px,3vw,40px);
+      position: sticky; top: 0; z-index: 200;
+      overflow: hidden;
+    }
+    .nav-logo { white-space: nowrap; flex-shrink: 0; }
+    .nav-logo img { height: clamp(36px,7vw,60px); width: auto; display: block; }
+    .nav-links {
+      display: flex; align-items: center;
+      gap: clamp(8px,1.8vw,24px); flex: 1; justify-content: center;
+      padding: 0 clamp(8px,2vw,28px); min-width: 0;
+    }
+    .nav-links a {
+      text-decoration: none; color: #000;
+      font-size: clamp(9px,1.6vw,13px); font-weight: 700;
+      letter-spacing: 0.3px; text-transform: uppercase; white-space: nowrap;
+      font-family: 'Boogaloo', sans-serif;
+    }
+    .nav-links a:hover, .nav-links a.active { text-decoration: underline; }
+    .btn-nav-cta {
+      background: var(--green); color: #000;
+      font-size: clamp(9px,1.6vw,13px); font-weight: 800;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      padding: clamp(6px,1.2vw,10px) clamp(10px,2vw,18px);
+      text-decoration: none; white-space: nowrap;
+      flex-shrink: 0; transition: opacity .2s;
+      font-family: 'Boogaloo', sans-serif;
+    }
+    .btn-nav-cta:hover { opacity: .85; }
+
+    /* ── CENTERING WRAPPER — same padding approach as homepage ── */
+    .page-inner {
+      padding-left:  clamp(40px, 12vw, 180px);
+      padding-right: clamp(40px, 12vw, 180px);
+    }
+
+    /* ── HERO — orange background, cream headline ── */
+    .services-hero {
+      background: var(--cream);
+      padding-top: clamp(36px,8vw,80px);
+      padding-bottom: clamp(28px,6vw,60px);
+    }
+    .services-headline {
+      font-size: clamp(52px,15vw,140px);
+      line-height: 0.9;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: clamp(16px,3.5vw,32px);
+    }
+    .services-subtext {
+      font-size: clamp(10px,2.2vw,14px);
+      color: var(--dark);
+      line-height: 1.65;
+      max-width: clamp(220px, 50vw, 460px);
+      opacity: 0.85;
+    }
+
+    /* ── SERVICE ROWS — cream background ── */
+    .services-list {
+      background: var(--cream);
+    }
+
+    .service-row {
+      display: grid;
+      /* num | divider | title | description */
+      grid-template-columns:
+        clamp(32px, 7vw, 72px)          /* number */
+        1px                              /* vertical line */
+        clamp(140px, 26vw, 280px)        /* title */
+        1fr;                             /* description */
+      gap: 0 clamp(16px, 3.5vw, 40px);
+      align-items: start;
+      border-bottom: 1.5px solid #ccc;
+      padding: clamp(20px,5vw,52px) 0;
+    }
+    .service-row:last-child { border-bottom: none; }
+
+    /* orange number */
+    .svc-num {
+      font-family: 'Boogaloo', sans-serif;
+      font-size: clamp(36px,10vw,52px);
+      color: var(--orange);
+      line-height: 1.1;
+      padding-top: clamp(3px,0.8vw,8px);
+      text-align: left;
+    }
+
+    /* thin vertical divider line */
+    .svc-divider {
+      background: #bbb;
+      opacity: 0;
+      width: 1px;
+      align-self: stretch;
+      min-height: clamp(50px, 8vw, 80px);
+    }
+
+    /* large bold title */
+    .svc-title {
+      font-family: 'Boogaloo', sans-serif;
+      font-size: clamp(24px,5.5vw,52px);
+      line-height: 1.0;
+      color: var(--dark);
+      
+      padding-top: clamp(3px,0.8vw,8px);
+    }
+
+    /* small description text */
+    .svc-desc {
+      font-size: clamp(9px,1.9vw,12.5px);
+      color: var(--dark);
+      line-height: 1.72;
+      padding-top: clamp(6px,1.2vw,12px);
+    }
+
+    /* ── CTA ── */
+    .services-cta {
+      background: var(--orange);
+      padding-top: clamp(40px,10vw,90px);
+      padding-bottom: 0;
+      text-align: center;
+    }
+    .services-cta-title {
+      font-family: 'Boogaloo', sans-serif;
+      font-size: clamp(26px,7vw,68px);
+      line-height: 1.05; color: #fff;
+      margin-bottom: clamp(18px,4.5vw,44px);
+    }
+    .btn-partner {
+      background: var(--green); color: #000;
+      font-family: 'Boogaloo', sans-serif;
+      font-size: clamp(11px,2.7vw,17px); font-weight: 800;
+      letter-spacing: 0.6px; text-transform: uppercase;
+      padding: clamp(11px,2.9vw,20px) clamp(16px,4.2vw,32px);
+      text-decoration: none; white-space: nowrap;
+      display: inline-block; transition: opacity .2s;
+    }
+    .btn-partner:hover { opacity: .85; }
+    .services-cta-sub {
+      font-family: 'Covered By Your Grace', cursive;
+      font-size: clamp(13px,3vw,22px);
+      color: #000; margin-top: clamp(10px,2.5vw,20px);
+      line-height: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #F5FFEA;
+      padding: clamp(20px,5.8vw,52px) clamp(14px,3.75vw,64px) clamp(12px,3.3vw,28px);
+      margin-top: clamp(36px,10vw,90px);
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: clamp(12px,3.3vw,36px);
+      padding-bottom: clamp(14px,3.75vw,32px);
+      border-bottom: 1px solid #262626;
+      margin-bottom: clamp(10px,2.5vw,20px);
+    }
+    .footer-top > div { text-align: left; }
+    .footer-brand { line-height: 1.15; margin-bottom: clamp(7px,1.9vw,16px); }
+    .footer-brand img {
+      height: clamp(36px,6vw,72px); width: auto;
+      display: block; max-width: 100%;
+      margin-left: 0; margin-right: auto;
+    }
+    .footer-desc { font-size: clamp(8px,2vw,11px); color: #666; line-height: 1.65; }
+    .footer-col-head {
+      font-size: clamp(10px,2vw,13px); font-weight: 800;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange);
+      margin-bottom: clamp(8px,2.3vw,18px);
+    }
+    .footer-col a {
+      display: block; font-size: clamp(10px,2vw,12px); color: #000;
+      text-decoration: none; margin-bottom: clamp(5px,1.3vw,10px);
+      transition: color .2s; font-weight: 700; text-transform: uppercase;
+    }
+    .footer-col a:hover { color: var(--green); }
+    .footer-socials-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0 clamp(6px,2vw,12px);
+    }
+    .footer-socials-grid a {
+      display: block; font-size: clamp(10px,2vw,12px); color: #000;
+      text-decoration: none; margin-bottom: clamp(5px,1.3vw,10px);
+      transition: color .2s; font-weight: 700; text-transform: uppercase;
+    }
+    .footer-socials-grid a:hover { color: var(--green); }
+    .footer-copy { font-size: clamp(7px,1.7vw,10px); color: #444; text-align: right; text-transform: uppercase; }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float {
+      position: fixed; bottom: clamp(16px,4vw,32px); right: clamp(16px,4vw,32px);
+      z-index: 999; display: flex; flex-direction: column;
+      align-items: flex-end; gap: 8px;
+    }
+    .wa-tooltip {
+      background: #fff; color: #111;
+      font-size: clamp(10px,2.4vw,13px); font-weight: 600;
+      padding: clamp(6px,1.5vw,10px) clamp(10px,2.7vw,16px);
+      border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,.14);
+      white-space: nowrap; opacity: 0; transform: translateY(4px);
+      transition: opacity .22s, transform .22s; pointer-events: none;
+    }
+    .wa-float:hover .wa-tooltip { opacity: 1; transform: translateY(0); }
+    .wa-btn {
+      background: #25D366;
+      width: clamp(44px,11.5vw,60px); height: clamp(44px,11.5vw,60px);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      text-decoration: none; box-shadow: 0 4px 18px rgba(37,211,102,.45);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .wa-btn:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37,211,102,.6); }
+    .wa-btn svg { width: clamp(22px,5.8vw,30px); height: clamp(22px,5.8vw,30px); fill: #fff; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(36px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    nav               { animation: fadeDown 0.6s cubic-bezier(.22,1,.36,1) both; }
+    .services-headline { animation: fadeUp 0.75s cubic-bezier(.22,1,.36,1) 0.15s both; }
+    .services-subtext  { animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) 0.3s both; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <img src="Madetolast-white.png" alt="MadetoLast Brands">
+    </div>
+    <div class="nav-links fd">
+      <a href="index.html">Process</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="#">Our Story</a>
+      <a href="#">Contact</a>
+      <a href="#">Blog</a>
+    </div>
+    <a href="#contact" class="btn-nav-cta fd">Start Project</a>
+  </nav>
+
+  <!-- HERO: orange bg, cream text -->
+  <section class="services-hero">
+    <div class="page-inner">
+      <h1 class="services-headline fd">Service<br>Offerings</h1>
+      <p class="services-subtext">Everything that we offer is targeted at taking a founder's idea, structuring it 
+        into a brand the right market will actually pay for and building the right Marketing
+        System that sells it </p>
+    </div>
+  </section>
+
+  <!-- SERVICE ROWS: cream bg -->
+  <section class="services-list">
+    <div class="page-inner">
+
+      <div class="service-row">
+        <div class="svc-num fd">01</div>
+        <div class="svc-divider"></div>
+        <div class="svc-title fd">Brand<br>Strategy</div>
+        <div class="svc-desc">Before you build anything, you need to know who you're building it for, what makes you different, and why someone should choose you over everyone else. 
+            We do the market research, define your positioning, and give your brand a clear direction</div>
+      </div>
+
+      <div class="service-row">
+        <div class="svc-num fd">02</div>
+        <div class="svc-divider"></div>
+        <div class="svc-title fd">Identity<br>Design</div>
+        <div class="svc-desc">Once we know who you're talking to, we build a visual identity that speaks their language, logo, colours, typography, and design that makes your brand instantly recognizable to the right people.</div>
+      </div>
+
+      <div class="service-row">
+        <div class="svc-num fd">03</div>
+        <div class="svc-divider"></div>
+        <div class="svc-title fd">Website</div>
+        <div class="svc-desc">We design and build sites structured around your positioning and pricing, clear, fast, and written to convert the right visitors into buyers without confusion.</div>
+      </div>
+
+      <div class="service-row">
+        <div class="svc-num fd">04</div>
+        <div class="svc-divider"></div>
+        <div class="svc-title fd">Content<br>Systems</div>
+        <div class="svc-desc">We create a content framework rooted in your brand voice and strategy, so every post, caption, and email says something consistent, intentional, and built to keep your audience moving toward a purchase.</div>
+      </div>
+
+      <div class="service-row">
+        <div class="svc-num fd">05</div>
+        <div class="svc-divider"></div>
+        <div class="svc-title fd">Marketing<br>Systems</div>
+        <div class="svc-desc">Ads, email, and social campaigns that connect to each other and to your brand. We build the full marketing engine so your brand is always showing up, always selling.</div>
+      </div>
+
+      <div class="service-row">
+        <div class="svc-num fd">06</div>
+        <div class="svc-divider"></div>
+        <div class="svc-title fd">Brand<br>Management</div>
+        <div class="svc-desc">We take full ownership of your brand's presence; social, content, campaigns, and consistency checks, so your brand keeps showing up and selling, every month, without you managing it.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="services-cta" id="contact">
+    <div class="page-inner">
+      <h2 class="services-cta-title">Are you Ready to<br>Build a Brand that is<br>Made to Last?</h2>
+      <a href="https://wa.me/2349016043072?text=Hi%2C%20I%27m%20ready%20to%20build%20a%20brand%20that%20lasts%21" target="_blank" class="btn-partner">Partner With Us</a>
+      <p class="services-cta-sub">We're currently booking for Q3.<br>Fill the form and get started.</p>
+    </div>
+
+    <footer>
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">
+            <img src="Madetolast-primary.png" alt="MadetoLast Brands">
+          </div>
+          <p class="footer-desc">A Brand Marketing and Advertising Agency for DTC brands, structuring founders' ideas into profitable brands for founders done with DIY.</p>
+        </div>
+        <div>
+          <p class="footer-col-head">Drop A Message</p>
+          <div class="footer-col">
+            <a href="mailto:madetolastbrands@gmail.com">Email Address</a>
+            <a href="https://wa.me/2349016043072" target="_blank">WhatsApp</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-head">Follow Us On Socials</p>
+          <div class="footer-socials-grid">
+            <a href="https://www.linkedin.com/company/made-to-last-brands/">LinkedIn</a>
+            <a href="https://www.instagram.com/madetolastbrands">Instagram</a>
+            <a href="https://x.com/Madetolastbrand">X (Twitter)</a>
+            <a href="https://www.facebook.com/share/1CSLQLk2s4/">Facebook</a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 Made to Last Brands. All Rights Reserved.</p>
+    </footer>
+  </section>
+
+  <!-- WHATSAPP FLOAT -->
+  <div class="wa-float">
+    <div class="wa-tooltip">Chat with us on WhatsApp 💬</div>
+    <a class="wa-btn" href="https://wa.me/2349016043072?text=Hi%2C%20I%20found%20you%20online%20and%20I%27d%20like%20to%20discuss%20building%20my%20brand." target="_blank" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16.003 2.667C8.637 2.667 2.667 8.637 2.667 16.003c0 2.352.629 4.656 1.824 6.683L2.667 29.333l6.81-1.787a13.263 13.263 0 0 0 6.526 1.72c7.365 0 13.33-5.97 13.33-13.263C29.333 8.637 23.368 2.667 16.003 2.667Zm0 24.293a11.034 11.034 0 0 1-5.635-1.547l-.404-.24-4.042 1.062 1.08-3.935-.263-.42A11.03 11.03 0 0 1 4.96 16.003c0-6.094 4.953-11.043 11.043-11.043 6.09 0 11.036 4.949 11.036 11.043 0 6.09-4.946 11.037-11.036 11.037Zm6.056-8.26c-.33-.166-1.958-.965-2.262-1.075-.304-.11-.525-.165-.746.166-.22.33-.856 1.075-1.049 1.296-.192.22-.385.247-.715.083-.33-.165-1.393-.514-2.655-1.637-.98-.875-1.643-1.955-1.836-2.285-.192-.33-.02-.509.145-.673.148-.148.33-.385.494-.578.165-.192.22-.33.33-.55.11-.22.055-.413-.027-.578-.083-.165-.746-1.8-1.022-2.465-.27-.647-.545-.56-.746-.57l-.636-.01c-.22 0-.578.082-.88.413-.303.33-1.155 1.129-1.155 2.756 0 1.626 1.183 3.196 1.347 3.417.165.22 2.327 3.554 5.643 4.988.788.34 1.403.543 1.882.695.79.25 1.51.215 2.079.13.634-.094 1.958-.8 2.234-1.572.275-.77.275-1.43.193-1.568-.082-.138-.302-.22-.632-.385Z"/>
+      </svg>
+    </a>
+  </div>
+
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, i * 100);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.service-row').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(28px)';
+      el.style.transition = 'opacity 0.55s cubic-bezier(.22,1,.36,1), transform 0.55s cubic-bezier(.22,1,.36,1)';
+      io.observe(el);
+    });
+  </script>
+</body>
+</html>

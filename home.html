@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MadetoLast Brands</title>
+  <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Covered+By+Your+Grace&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange: #F04800;
+      --cream:  #F5FFEA;
+      --peach:  #FFE1BF;
+      --blue:   #A6CCF2;
+      --green:  #A7EC52;
+      --dark:   #111111;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; }
+
+    .fd { font-family: 'Boogaloo', 'Arial Black', sans-serif; }
+    .fh { font-family: 'Covered By Your Grace', cursive; }
+
+    .inner {
+      padding-left:  clamp(14px, 3.75vw, 64px);
+      padding-right: clamp(14px, 3.75vw, 64px);
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--orange);
+      display: flex;
+      align-items: center;
+      padding: clamp(6px,1.8vw,14px) clamp(12px,3vw,40px);
+      position: sticky; top: 0; z-index: 200;
+      overflow: hidden;
+    }
+    .nav-logo {
+      font-family: 'Inter', sans-serif; font-weight: 900;
+      font-size: clamp(10px,2.6vw,16px); color: #000;
+      white-space: nowrap; flex-shrink: 0; line-height: 1.2;
+    }
+    .nav-logo img {
+      height: clamp(36px,7vw,60px);
+      width: auto;
+      display: block;
+    }
+    .nav-logo em { font-style: italic; font-weight: 400; }
+    .nav-links {
+      display: flex; align-items: center;
+      gap: clamp(8px,1.8vw,24px);
+      flex: 1;
+      justify-content: center;
+      padding: 0 clamp(8px,2vw,28px);
+      min-width: 0;
+    }
+    .nav-links a {
+      text-decoration: none; color: #000;
+      font-size: clamp(9px,1.6vw,13px); font-weight: 700;
+      letter-spacing: 0.3px; text-transform: uppercase; white-space: nowrap;
+    }
+    .nav-links a:hover { text-decoration: underline; }
+    .btn-nav-cta {
+      background: var(--green); color: #000;
+      font-size: clamp(9px,1.6vw,13px); font-weight: 800;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      padding: clamp(6px,1.2vw,10px) clamp(10px,2vw,18px);
+      text-decoration: none; white-space: nowrap;
+      flex-shrink: 0; transition: opacity .2s;
+    }
+    .btn-nav-cta:hover { opacity: .85; }
+
+    /* ── HERO ── */
+    .hero { background: var(--cream); padding-top: clamp(24px,7vw,72px); }
+    .hero-inner {
+      padding-left: clamp(40px, 12vw, 180px);
+      padding-right: clamp(40px, 12vw, 180px);
+    }
+    .hero-headline {
+      font-size: clamp(32px,11.25vw,100px);
+      line-height: 0.94; color: var(--orange);
+      letter-spacing: -0.02em;
+      margin-bottom: clamp(14px,4vw,36px);
+    }
+    .hero-row {
+      display: flex; align-items: flex-start;
+      gap: clamp(12px,3.75vw,36px);
+      padding-bottom: clamp(20px,5.5vw,52px);
+    }
+    .btn-partner {
+      background: var(--green); color: #000;
+      font-size: clamp(11px,2.7vw,17px); font-weight: 800;
+      letter-spacing: 0.6px; text-transform: uppercase;
+      padding: clamp(11px,2.9vw,20px) clamp(16px,4.2vw,32px);
+      text-decoration: none; white-space: nowrap;
+      flex-shrink: 0; transition: opacity .2s;
+    }
+    .btn-partner:hover { opacity: .85; }
+    .hero-sub { font-size: clamp(10px,2.8vw,16px); color: #444; line-height: 1.65; font-weight: 600; flex: 1; }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      background: var(--peach); overflow: hidden;
+      padding: clamp(9px,2.5vw,18px) 0; white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex; align-items: center;
+      animation: ticker 22s linear infinite;
+    }
+    .marquee-track span {
+      font-family: 'Boogaloo', sans-serif;
+      font-size: clamp(13px,3.5vw,24px); color: var(--orange);
+      padding: 0 clamp(10px,3vw,24px);
+    }
+    .marquee-track .dot { color: var(--orange); font-size: clamp(16px,4vw,28px); padding: 0 2px; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── TAGLINE ── */
+    .tagline-section {
+      background: var(--orange);
+      padding-top: clamp(26px,7vw,64px); padding-bottom: clamp(24px,6.5vw,60px);
+    }
+    .tagline-inner-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(16px,4vw,48px);
+      align-items: center;
+      padding-left: clamp(40px, 12vw, 180px);
+      padding-right: clamp(40px, 12vw, 180px);
+    }
+    .tagline-headline {
+      font-size: clamp(28px,8vw,55px); line-height: 1.0; color: #fff;
+    }
+    .tagline-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .tagline-body {
+      font-size: clamp(9px,2.4vw,14px); color: #000; line-height: 1.75;
+      margin-bottom: clamp(12px,3.3vw,26px);
+    }
+    .tagline-quote {
+      display: inline-block; background: var(--green); color: #000;
+      font-size: clamp(12px,2.9vw,20px);
+      padding: clamp(5px,1.5vw,10px) clamp(7px,2.9vw,15px);
+      transform: rotate(-4deg);
+    }
+
+    /* ── PROCESS ── */
+    .process-section {
+      background: var(--cream);
+      padding-top: clamp(28px,8vw,72px); padding-bottom: clamp(28px,8vw,72px);
+    }
+    .eyebrow {
+      font-size: clamp(8px,2vw,12px); font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--dark);
+      background: var(--blue);
+      display: inline-block;
+      padding: clamp(4px,1vw,8px) clamp(40px,10vw,90px) clamp(4px,1vw,8px) clamp(10px,2.5vw,18px);
+      margin-bottom: clamp(10px,2.9vw,22px);
+    }
+    .process-title {
+      font-size: clamp(22px,7.5vw,68px); line-height: 1; color: var(--dark);
+      text-transform: uppercase; margin-bottom: clamp(18px,5vw,44px);
+    }
+    .process-cards {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: clamp(6px,1.7vw,14px);
+    }
+    .process-card {
+      background: var(--dark); color: #fff;
+      padding: clamp(14px,4.2vw,36px) clamp(10px,2.9vw,24px) clamp(16px,4.6vw,40px);
+    }
+    .process-num {
+      font-family: 'Boogaloo', sans-serif;
+      font-size: clamp(36px,10vw,88px); color: var(--green); line-height: 1;
+    }
+    .process-card-title {
+      font-weight: 800; font-size: clamp(12px,3.2vw,20px);
+      text-transform: uppercase; margin: clamp(5px,1.5vw,12px) 0;
+    }
+    .process-card-body { font-size: clamp(8px,2.1vw,12px); color: #bbb; line-height: 1.65; }
+
+    /* ── FOUNDER ── */
+    .founder-section {
+      background: #111;
+      padding-top: clamp(28px,8vw,72px); padding-bottom: clamp(28px,8vw,72px);
+    }
+    .founder-title {
+      font-size: clamp(30px,10.4vw,92px); color: #fff; line-height: 1;
+      margin-bottom: clamp(18px,5.4vw,50px);
+      text-align: center;
+    }
+    .founder-grid {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(20px,5vw,48px);
+      max-width: clamp(520px, 80vw, 900px);
+      margin: 0 auto;
+    }
+    .founder-img {
+      width: clamp(160px,28vw,300px);
+      aspect-ratio: 3/4;
+      background: #2a2a2a; overflow: hidden;
+      flex-shrink: 0;
+    }
+    .founder-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .founder-img svg { width: 100%; height: 100%; }
+    .founder-text-col {
+      text-align: left;
+      flex: 1;
+      min-width: 0;
+    }
+    .founder-quote-text {
+      font-size: clamp(14px,3.75vw,32px); color: #A6CCF2; line-height: 1.4;
+      margin-bottom: clamp(10px,2.9vw,24px);
+    }
+    .founder-body { font-size: clamp(9px,2.3vw,13px); color: #bbb; line-height: 1.8; text-align: left; }
+    .founder-body p + p { margin-top: clamp(8px,2.1vw,16px); }
+
+    /* ── CASE STUDIES ── */
+    .case-section {
+      background: var(--cream);
+      padding-top: clamp(28px,8vw,72px); padding-bottom: clamp(28px,8vw,72px);
+      text-align: center;
+    }
+    .case-pill {
+      display: inline-block; border-radius: 10px; background: var(--dark); color: #F5FFEA;
+      font-size: clamp(9px,2vw,13px); font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: clamp(4px,1vw,8px) clamp(10px,2.7vw,20px);
+      margin-bottom: clamp(12px,3.75vw,30px);
+    }
+    .case-title {
+      font-size: clamp(18px,5.83vw,52px); line-height: 1.1; color: var(--dark);
+      max-width: 85%; margin: 0 auto clamp(12px,3.75vw,30px);
+    }
+    .case-arrow { font-size: clamp(18px,5vw,40px); display: block; margin-bottom: clamp(14px,3.75vw,30px); }
+    .case-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: clamp(6px,1.7vw,16px);
+      margin-bottom: clamp(18px,5vw,44px); text-align: left;
+    }
+
+    /* Case card link wrapper */
+    .case-card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .case-card-link:hover .case-img-block { opacity: 0.88; }
+    .case-card-link:hover .case-caption { color: var(--orange); }
+
+    .case-img-block {
+      width: 100%; aspect-ratio: 4/3;
+      overflow: hidden;
+      display: block;
+      transition: opacity .2s;
+    }
+    /* Images inside case blocks fill the block properly */
+    .case-img-block img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .case-caption {
+      font-size: clamp(8px,1.875vw,11px); font-weight: 600; color: #333; line-height: 1.5;
+      margin-top: clamp(5px,1.5vw,12px);
+      transition: color .2s;
+    }
+    .btn-green-cta {
+      display: inline-block; background: var(--green); color: #000;
+      font-size: clamp(10px,3vw,18px); font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: clamp(10px,2.9vw,18px) clamp(16px,5vw,44px);
+      text-decoration: none; transition: opacity .2s;
+    }
+    .btn-green-cta:hover { opacity: .85; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--orange);
+      padding-top: clamp(40px,11vw,100px); padding-bottom: 0;
+      text-align: center;
+    }
+    .cta-title {
+      font-size: clamp(26px,8.33vw,76px); line-height: 1.05; color: #fff;
+      margin-bottom: clamp(18px,5.4vw,50px);
+    }
+    .cta-sub {
+      font-size: clamp(13px,3.33vw,26px); color: #000;
+      margin-top: clamp(10px,2.7vw,22px); line-height: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #F5FFEA;
+      padding: clamp(20px,5.8vw,52px) clamp(14px,3.75vw,64px) clamp(12px,3.3vw,28px);
+      margin-top: clamp(36px,10vw,90px);
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: clamp(12px,3.3vw,36px);
+      padding-bottom: clamp(14px,3.75vw,32px);
+      border-bottom: 1px solid #262626;
+      margin-bottom: clamp(10px,2.5vw,20px);
+    }
+    /* Col 1: left-aligned */
+    .footer-top > div:nth-child(1) { text-align: left; }
+    /* Col 2: left-aligned within its centered grid column */
+    .footer-top > div:nth-child(2) { text-align: left; }
+    .footer-top > div:nth-child(2) .footer-col { width: 100%; text-align: left; }
+    .footer-top > div:nth-child(2) .footer-col a { text-align: left; }
+    /* Col 3: left-aligned within its right grid column */
+    .footer-top > div:nth-child(3) { text-align: left; }
+
+    .footer-brand {
+      line-height: 1.15; margin-bottom: clamp(7px,1.9vw,16px);
+      text-align: left;
+    }
+    .footer-brand img {
+      height: clamp(58px,12vw,92px);
+      width: auto;
+      display: block;
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: auto;
+    }
+    .footer-desc { font-size: clamp(8px,2vw,11px); color: #666; line-height: 1.65; text-align: left; }
+    .footer-col-head {
+      font-size: clamp(10px,2vw,13px); font-weight: 800;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange);
+      margin-bottom: clamp(8px,2.3vw,18px);
+    }
+    .footer-col a {
+      display: block; font-size: clamp(10px,2vw,12px); color: #000;
+      text-decoration: none; margin-bottom: clamp(5px,1.3vw,10px); transition: color .2s;
+      font-weight: 700; text-transform: uppercase;
+    }
+    .footer-col a:hover { color: var(--green); }
+    .footer-socials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 clamp(6px,2vw,12px);
+    }
+    .footer-socials-grid a {
+      display: block; font-size: clamp(10px,2vw,12px); color: #000;
+      text-decoration: none; margin-bottom: clamp(5px,1.3vw,10px); transition: color .2s;
+      font-weight: 700; text-transform: uppercase;
+    }
+    .footer-socials-grid a:hover { color: var(--green); }
+    .footer-copy { font-size: clamp(7px,1.7vw,10px); color: #444; text-align: right; text-transform: uppercase; }
+
+    /* ── PAGE LOAD ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(36px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeLeft {
+      from { opacity: 0; transform: translateX(40px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    nav            { animation: fadeDown 0.6s cubic-bezier(.22,1,.36,1) both; }
+    .hero-headline { animation: fadeUp 0.75s cubic-bezier(.22,1,.36,1) 0.15s both; }
+    .btn-partner   { animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) 0.35s both; }
+    .hero-sub      { animation: fadeLeft 0.7s cubic-bezier(.22,1,.36,1) 0.45s both; }
+    .marquee-wrap  { animation: scaleIn 0.6s cubic-bezier(.22,1,.36,1) 0.55s both; }
+    .tagline-headline { animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) 0.65s both; }
+    .tagline-body     { animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) 0.78s both; }
+    @keyframes fadeUpRotate {
+      from { opacity: 0; transform: translateY(36px) rotate(-4deg); }
+      to   { opacity: 1; transform: translateY(0)    rotate(-4deg); }
+    }
+    .tagline-quote { animation: fadeUpRotate 0.7s cubic-bezier(.22,1,.36,1) 0.9s both; }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float {
+      position: fixed; bottom: clamp(16px,4vw,32px); right: clamp(16px,4vw,32px);
+      z-index: 999; display: flex; flex-direction: column;
+      align-items: flex-end; gap: 8px;
+    }
+    .wa-tooltip {
+      background: #fff; color: #111;
+      font-size: clamp(10px,2.4vw,13px); font-weight: 600;
+      padding: clamp(6px,1.5vw,10px) clamp(10px,2.7vw,16px);
+      border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,.14);
+      white-space: nowrap; opacity: 0; transform: translateY(4px);
+      transition: opacity .22s, transform .22s; pointer-events: none;
+    }
+    .wa-float:hover .wa-tooltip { opacity: 1; transform: translateY(0); }
+    .wa-btn {
+      background: #25D366;
+      width: clamp(44px,11.5vw,60px); height: clamp(44px,11.5vw,60px);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      text-decoration: none; box-shadow: 0 4px 18px rgba(37,211,102,.45);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .wa-btn:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37,211,102,.6); }
+    .wa-btn svg { width: clamp(22px,5.8vw,30px); height: clamp(22px,5.8vw,30px); fill: #fff; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <img src="Madetolast-white.png" alt="MadetoLast Brands">
+    </div>
+    <div class="nav-links fd">
+      <a href="#process-section">Process</a>
+      <a href="#">Services</a>
+      <a href="#">Our Story</a>
+      <a href="#contact">Contact</a>
+      <a href="#">Blog</a>
+    </div>
+    <a href="#contact" class="btn-nav-cta fd">Start Project</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="inner">
+      <div class="hero-inner">
+        <h1 class="hero-headline fd">We build brands<br>Structured<br>For profit</h1>
+        <div class="hero-row">
+          <a href="#contact" class="btn-partner fd">Partner With Us</a>
+          <p class="hero-sub fh">Strategy first Marketing and Advertising Agency for DTC founders ready to build right</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>Brand Strategy</span><span class="dot">·</span>
+      <span>Identity Design</span><span class="dot">·</span>
+      <span>Website</span><span class="dot">·</span>
+      <span>Marketing Systems</span><span class="dot">·</span>
+      <span>Brand Strategy</span><span class="dot">·</span>
+      <span>Identity Design</span><span class="dot">·</span>
+      <span>Website</span><span class="dot">·</span>
+      <span>Marketing Systems</span><span class="dot">·</span>
+    </div>
+  </div>
+
+  <!-- TAGLINE -->
+  <section class="tagline-section">
+    <div class="inner">
+      <div class="tagline-inner-grid">
+        <h2 class="tagline-headline fd">Your brand<br>can remain for<br>decades if you<br>Build it right</h2>
+        <div class="tagline-right">
+          <p class="tagline-body">We're a Brand Marketing and Advertising Agency that works with DTC founders who want to Skip the DIY route to building their DTC business brand. We validate your idea, position for the right market, then build a complete marketing system; Identity, Website, Content, Socials, all structured to convert consistently.</p>
+          <span class="tagline-quote fh">"stop competing and stand out"</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section" id="process-section">
+    <div class="inner">
+      <p class="eyebrow">Our Process</p>
+      <h2 class="process-title fd">The Brand Marketing System</h2>
+      <div class="process-cards">
+        <div class="process-card">
+          <div class="process-num">01</div>
+          <div class="process-card-title">Validate</div>
+          <p class="process-card-body">Is the market ready for you? Before we build anything, we confirm there's a real, reachable audience and that your offer speaks directly to them.</p>
+        </div>
+        <div class="process-card">
+          <div class="process-num">02</div>
+          <div class="process-card-title">Position</div>
+          <p class="process-card-body">What makes you the only choice? We define your brand's unique place in the market so customers stop comparing you on price and start choosing you on identity.</p>
+        </div>
+        <div class="process-card">
+          <div class="process-num">03</div>
+          <div class="process-card-title">Build</div>
+          <p class="process-card-body">The Brand Identity, Website, Socials, Content, Email etc. Each piece built to work as one system to communicate and convert the right customers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section class="founder-section">
+    <div class="inner">
+      <h2 class="founder-title fd">Meet the Founder</h2>
+      <div class="founder-grid">
+        <div class="founder-img">
+          <img src="Comfort.jpg" alt="Comfort – Founder of MadetoLast Brands" />
+        </div>
+        <div class="founder-text-col">
+          <p class="founder-quote-text fh">hi, I'm comfort, and I believe that<br>A brand without a system can't last.</p>
+          <div class="founder-body">
+            <p>I spent years as a brand strategist and designer, working with founders on how their brands looked and felt, that is the Brand Identity.</p>
+            <p>Overtime, I noticed that some founders I worked with were impatient. They had a product they believed in and they wanted to move. So they'd rush through the brand foundation, skip the market research, skip the positioning work, and launched fast.</p>
+            <p>Six months later, they're exhausted. A year later, they've gone quiet and years after, they are completely out of the market.</p>
+            <p>That's why I built Made to Last Brands to give DTC founders the foundation, the positioning, and the full marketing system their brand needs to actually sell and scale effortlessly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="case-section">
+    <div class="inner">
+      <span class="case-pill">The Brand Marketing Case Studies</span>
+      <h2 class="case-title fd">We did an analysis of brands that built a well functional Brand Marketing System and here's what we found</h2>
+      <span class="case-arrow">&#8595;</span>
+      <div class="case-grid">
+        <div>
+          <a class="case-card-link" href="https://weeklybrandmarketinganalysis.substack.com/" target="_blank" rel="noopener">
+            <div class="case-img-block" style="background:linear-gradient(140deg,#c6dea0,#ddf0b8,#a8c878);">
+              <img src="who-gives-a-crap.jpg" alt="Who Gives A Crap" onerror="this.style.display='none'">
+            </div>
+            <p class="case-caption">How Who Gives A Crap Built a $100M Brand by Turning Toilet Paper into a Global Mission</p>
+          </a>
+        </div>
+        <div>
+          <a class="case-card-link" href="https://weeklybrandmarketinganalysis.substack.com/" target="_blank" rel="noopener">
+            <div class="case-img-block" style="background:linear-gradient(160deg,#1a0a14,#3a1830,#c04070);">
+              <img src="wild-deodorant.jpg" alt="Wild Deodorant" onerror="this.style.display='none'">
+            </div>
+            <p class="case-caption">How Wild Deodorant used product design and a subscription-based business model to build the Brand</p>
+          </a>
+        </div>
+        <div>
+          <a class="case-card-link" href="https://weeklybrandmarketinganalysis.substack.com/" target="_blank" rel="noopener">
+            <div class="case-img-block" style="background:linear-gradient(135deg,#d8eef8,#f0e8d0,#b0d4ee);">
+              <img src="blueland-cleaning-product-packaging.webp" alt="Blueland Cleaning Products" onerror="this.style.display='none'">
+            </div>
+            <p class="case-caption">How Blueland founder's personal fear became a brand strategy, a Shark Tank deal, and a mission...</p>
+          </a>
+        </div>
+      </div>
+      <a href="https://weeklybrandmarketinganalysis.substack.com/" target="_blank" rel="noopener" class="btn-green-cta fd">See More Case Studies Here</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="inner">
+      <h2 class="cta-title fd">Are you Ready to<br>Build a Brand that is<br>Made to Last?</h2>
+      <a href="https://wa.me/2349016043072?text=Hi%2C%20I%27m%20ready%20to%20build%20a%20brand%20that%20lasts%21" target="_blank" class="btn-partner">Partner With Us</a>
+      <p class="cta-sub fh">We're currently booking for Q3.<br>Fill the form and get started.</p>
+    </div>
+    <footer>
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">
+            <img src="Madetolast-primary.png" alt="MadetoLast Brands">
+          </div>
+          <p class="footer-desc">A Brand Marketing and Advertising Agency for 
+            <br>DTC brands, structuring founders' ideas into profitable
+            <br>brands for founders done with DIY.</p>
+        </div>
+        <div>
+          <p class="footer-col-head">Drop A Message</p>
+          <div class="footer-col">
+            <a href="mailto:madetolastbrands@gmail.com">Email Address</a>
+            <a href="https://wa.me/2349016043072" target="_blank">WhatsApp</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-head">Follow Us On Socials</p>
+          <div class="footer-socials-grid">
+            <a href="https://www.linkedin.com/company/made-to-last-brands/">LinkedIn</a>
+            <a href="https://www.instagram.com/madetolastbrands">Instagram</a>
+            <a href="https://x.com/Madetolastbrand">X (Twitter)</a>
+            <a href="https://www.facebook.com/share/1CSLQLk2s4/">Facebook</a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 Made to Last Brands. All Rights Reserved.</p>
+    </footer>
+  </section>
+
+  <!-- WHATSAPP FLOAT -->
+  <div class="wa-float">
+    <div class="wa-tooltip">Chat with us on WhatsApp 💬</div>
+    <a class="wa-btn" href="https://wa.me/2349016043072?text=Hi%2C%20I%20found%20you%20online%20and%20I%27d%20like%20to%20discuss%20building%20my%20brand." target="_blank" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16.003 2.667C8.637 2.667 2.667 8.637 2.667 16.003c0 2.352.629 4.656 1.824 6.683L2.667 29.333l6.81-1.787a13.263 13.263 0 0 0 6.526 1.72c7.365 0 13.33-5.97 13.33-13.263C29.333 8.637 23.368 2.667 16.003 2.667Zm0 24.293a11.034 11.034 0 0 1-5.635-1.547l-.404-.24-4.042 1.062 1.08-3.935-.263-.42A11.03 11.03 0 0 1 4.96 16.003c0-6.094 4.953-11.043 11.043-11.043 6.09 0 11.036 4.949 11.036 11.043 0 6.09-4.946 11.037-11.036 11.037Zm6.056-8.26c-.33-.166-1.958-.965-2.262-1.075-.304-.11-.525-.165-.746.166-.22.33-.856 1.075-1.049 1.296-.192.22-.385.247-.715.083-.33-.165-1.393-.514-2.655-1.637-.98-.875-1.643-1.955-1.836-2.285-.192-.33-.02-.509.145-.673.148-.148.33-.385.494-.578.165-.192.22-.33.33-.55.11-.22.055-.413-.027-.578-.083-.165-.746-1.8-1.022-2.465-.27-.647-.545-.56-.746-.57l-.636-.01c-.22 0-.578.082-.88.413-.303.33-1.155 1.129-1.155 2.756 0 1.626 1.183 3.196 1.347 3.417.165.22 2.327 3.554 5.643 4.988.788.34 1.403.543 1.882.695.79.25 1.51.215 2.079.13.634-.094 1.958-.8 2.234-1.572.275-.77.275-1.43.193-1.568-.082-.138-.302-.22-.632-.385Z"/>
+      </svg>
+    </a>
+  </div>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    const revealSelectors = [
+      { sel: '.eyebrow',           dir: 'left',  delay: 0   },
+      { sel: '.process-title',     dir: 'up',    delay: 80  },
+      { sel: '.process-card',      dir: 'up',    delay: 0   },
+      { sel: '.founder-title',     dir: 'up',    delay: 0   },
+      { sel: '.founder-img',       dir: 'up',    delay: 100 },
+      { sel: '.founder-text-col',  dir: 'up',    delay: 200 },
+      { sel: '.case-pill',         dir: 'up',    delay: 0   },
+      { sel: '.case-title',        dir: 'up',    delay: 80  },
+      { sel: '.case-arrow',        dir: 'up',    delay: 140 },
+      { sel: '.case-grid > div',   dir: 'up',    delay: 0   },
+      { sel: '.btn-green-cta',     dir: 'up',    delay: 300 },
+      { sel: '.cta-title',         dir: 'up',    delay: 0   },
+      { sel: '.footer-brand',      dir: 'up',    delay: 0   },
+      { sel: '.footer-desc',       dir: 'up',    delay: 80  },
+    ];
+
+    function getTransform(dir) {
+      if (dir === 'left')  return 'translateX(40px)';
+      if (dir === 'right') return 'translateX(-40px)';
+      return 'translateY(30px)';
+    }
+
+    const observed = new Set();
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !observed.has(entry.target)) {
+          observed.add(entry.target);
+          const delay = parseInt(entry.target.dataset.revealDelay || 0);
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translate(0,0)';
+          }, delay);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealSelectors.forEach(({ sel, dir, delay }) => {
+      document.querySelectorAll(sel).forEach((el, i) => {
+        const isStaggered = sel.includes('card') || sel.includes('> div');
+        const itemDelay = delay + (isStaggered ? i * 120 : 0);
+        el.style.opacity = '0';
+        el.style.transform = getTransform(dir);
+        el.style.transition = 'opacity 0.6s cubic-bezier(.22,1,.36,1), transform 0.6s cubic-bezier(.22,1,.36,1)';
+        el.dataset.revealDelay = itemDelay;
+        io.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
