@@ -4,8 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MadetoLast Brands</title>
-  <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Covered+By+Your+Grace&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet">
+
   <style>
+    /* @font-face {
+      font-family: 'Boldonse';
+      src: url('https://fonts.googleapis.com/css2?family=Boldonse&display=swap') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    } */
     :root {
       --orange: #F04800;
       --cream:  #F5FFEA;
@@ -18,7 +29,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; }
 
-    .fd { font-family: 'Boogaloo', 'Arial Black', sans-serif; }
+    .fd { font-family: 'Boldonse', sans-serif; }
     .fh { font-family: 'Covered By Your Grace', cursive; }
 
     .inner {
@@ -77,9 +88,9 @@
       padding-right: clamp(40px, 12vw, 180px);
     }
     .hero-headline {
-      font-size: clamp(32px,11.25vw,100px);
-      line-height: 0.94; color: var(--orange);
-      letter-spacing: -0.02em;
+      font-size: clamp(26px,8vw,72px);
+      line-height: 1.5; color: var(--orange);
+      letter-spacing: -0.01em;
       margin-bottom: clamp(14px,4vw,36px);
     }
     .hero-row {
@@ -108,7 +119,7 @@
       animation: ticker 22s linear infinite;
     }
     .marquee-track span {
-      font-family: 'Boogaloo', sans-serif;
+      font-family: 'Boldonse', sans-serif;
       font-size: clamp(13px,3.5vw,24px); color: var(--orange);
       padding: 0 clamp(10px,3vw,24px);
     }
@@ -129,7 +140,7 @@
       padding-right: clamp(40px, 12vw, 180px);
     }
     .tagline-headline {
-      font-size: clamp(28px,8vw,55px); line-height: 1.0; color: #fff;
+      font-size: clamp(20px,5.5vw,42px); line-height: 1.5; color: #fff;
     }
     .tagline-right {
       display: flex;
@@ -161,7 +172,7 @@
       margin-bottom: clamp(10px,2.9vw,22px);
     }
     .process-title {
-      font-size: clamp(22px,7.5vw,68px); line-height: 1; color: var(--dark);
+      font-size: clamp(18px,5vw,46px); line-height: 1.5; color: var(--dark);
       text-transform: uppercase; margin-bottom: clamp(18px,5vw,44px);
     }
     .process-cards {
@@ -173,11 +184,11 @@
       padding: clamp(14px,4.2vw,36px) clamp(10px,2.9vw,24px) clamp(16px,4.6vw,40px);
     }
     .process-num {
-      font-family: 'Boogaloo', sans-serif;
-      font-size: clamp(36px,10vw,88px); color: var(--green); line-height: 1;
+      font-family: 'Boldonse', sans-serif;
+      font-size: clamp(28px,7vw,64px); color: var(--green); line-height: 1.1;
     }
     .process-card-title {
-      font-weight: 800; font-size: clamp(12px,3.2vw,20px);
+      font-weight: 800; font-size: clamp(11px,2.4vw,16px);
       text-transform: uppercase; margin: clamp(5px,1.5vw,12px) 0;
     }
     .process-card-body { font-size: clamp(8px,2.1vw,12px); color: #bbb; line-height: 1.65; }
@@ -188,7 +199,7 @@
       padding-top: clamp(28px,8vw,72px); padding-bottom: clamp(28px,8vw,72px);
     }
     .founder-title {
-      font-size: clamp(30px,10.4vw,92px); color: #fff; line-height: 1;
+      font-size: clamp(24px,7vw,64px); color: #fff; line-height: 1.5;
       margin-bottom: clamp(18px,5.4vw,50px);
       text-align: center;
     }
@@ -237,7 +248,7 @@
       margin-bottom: clamp(12px,3.75vw,30px);
     }
     .case-title {
-      font-size: clamp(18px,5.83vw,52px); line-height: 1.1; color: var(--dark);
+      font-size: clamp(16px,4vw,36px); line-height: 1.5; color: var(--dark);
       max-width: 85%; margin: 0 auto clamp(12px,3.75vw,30px);
     }
     .case-arrow { font-size: clamp(18px,5vw,40px); display: block; margin-bottom: clamp(14px,3.75vw,30px); }
@@ -290,7 +301,7 @@
       text-align: center;
     }
     .cta-title {
-      font-size: clamp(26px,8.33vw,76px); line-height: 1.05; color: #fff;
+      font-size: clamp(22px,6vw,56px); line-height: 1.5; color: #fff;
       margin-bottom: clamp(18px,5.4vw,50px);
     }
     .cta-sub {
@@ -326,7 +337,7 @@
       text-align: left;
     }
     .footer-brand img {
-      height: clamp(58px,12vw,92px);
+      height: clamp(78px,20vw,105px);
       width: auto;
       display: block;
       max-width: 100%;
@@ -422,10 +433,10 @@
       <img src="Madetolast-white.png" alt="MadetoLast Brands">
     </div>
     <div class="nav-links fd">
-      <a href="#process">Process</a>
+      <a href="#">Process</a>
       <a href="services.html">Services</a>
       <a href="#">Our Story</a>
-      <a href="#contact">Contact</a>
+      <a href="#">Contact</a>
       <a href="#">Blog</a>
     </div>
     <a href="#contact" class="btn-nav-cta fd">Start Project</a>
@@ -472,7 +483,7 @@
   </section>
 
   <!-- PROCESS -->
-  <section class="process-section" id="process">
+  <section class="process-section">
     <div class="inner">
       <p class="eyebrow">Our Process</p>
       <h2 class="process-title fd">The Brand Marketing System</h2>
@@ -566,9 +577,7 @@
           <div class="footer-brand">
             <img src="Madetolast-primary.png" alt="MadetoLast Brands">
           </div>
-          <p class="footer-desc">A Brand Marketing and Advertising Agency for 
-            <br>DTC brands, structuring founders' ideas into profitable
-            <br>brands for founders done with DIY.</p>
+          <p class="footer-desc">A Brand Marketing and Advertising Agency for DTC brands, structuring founders' ideas into profitable brands for founders done with DIY.</p>
         </div>
         <div>
           <p class="footer-col-head">Drop A Message</p>
