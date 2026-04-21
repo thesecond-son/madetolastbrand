@@ -555,7 +555,7 @@
         <div>
           <p class="footer-col-head">Drop A Message</p>
           <div class="footer-col">
-            <a href="mailto:madetolastbrands@gmail.com">Email Address</a>
+            <a href="mailto:partner@madetolastbrands.com">Email Address</a>
             <a href="https://wa.me/2349016043072" target="_blank">WhatsApp</a>
           </div>
         </div>
@@ -626,14 +626,14 @@
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
-      const mailto = `mailto:hello@madetolastbrands.com`
+      const mailto = `mailto:partner@madetolastbrands.com`
         + `?subject=${encodeURIComponent(subject + ' — from ' + name)}`
         + `&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
 
       window.location.href = mailto;
 
       setTimeout(() => {
-        status.textContent = "Your email client should have opened. If not, email us directly at hello@madetolastbrands.com";
+        status.textContent = "Your email client should have opened. If not, email us directly at partner@madetolastbrands.com";
         status.className = 'form-status success';
         btn.textContent = 'Send Message →';
         btn.disabled = false;
